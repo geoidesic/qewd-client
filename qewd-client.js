@@ -97,17 +97,17 @@ let start = function(application, $, customAjaxFn, url) {
     let use_fetch;
 
     if (typeof application === 'object') {
-      $ = application.$;
-      customAjaxFn = application.ajax;
-      url = application.url;
-      appName = application.application;
-      cookieName = application.cookieName;
-      jwt = application.jwt || false;
-      jwt_decode = application.jwt_decode;
-      log = application.log;
-      io_path = application.io_path;
-      io_transports = application.io_transports;
-      use_fetch = application.use_fetch;
+      if ('$' in application) $ = application.$;
+      if ('ajax' in application) customAjaxFn = application.ajax;
+      if ('url' in application) url = application.url;
+      if ('application' in application) appName = application.application;
+      if ('cookieName' in application) cookieName = application.cookieName;
+      if ('jwt' in application) jwt = application.jwt;
+      if ('jwt_decode' in application) jwt_decode = application.jwt_decode;
+      if ('log' in application) log = application.log;
+      if ('io_path' in application) io_path = application.io_path;
+      if ('io_transports' in application) io_transports = application.io_transports;
+      if ('use_fetch' in application) use_fetch = application.use_fetch;
       application = appName;
     }
 
