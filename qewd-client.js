@@ -177,7 +177,7 @@ let start = function(application, $, customAjaxFn, url) {
           token = messageObj.message.token;
 
           QEWD.setCookie = function(name) {
-            name = name || 'ewd-token';
+            name = name || 'QEWDSession';
             document.cookie = name + "=" + token;
           };
 
